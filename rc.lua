@@ -113,7 +113,7 @@ mytextclock = awful.widget.textclock(markup("#7788af", "%A %d %B ") .. markup("#
 -- Calendar
 lain.widgets.calendar:attach(mytextclock, { font_size = 10 })
 
--- Weather, id is WOEID 
+-- Weather, id is WOEID
 weathericon = wibox.widget.imagebox(beautiful.widget_weather)
 yawn = lain.widgets.yawn(2972, {
     settings = function()
@@ -191,7 +191,7 @@ volumewidget = lain.widgets.alsa({
     end
 })
 
--- Net 
+-- Net
 netdownicon = wibox.widget.imagebox(beautiful.widget_netdown)
 --netdownicon.align = "middle"
 netdowninfo = wibox.widget.textbox()
@@ -294,11 +294,11 @@ mytasklist.buttons = awful.util.table.join(
                                           end))
 
 for s = 1, screen.count() do
-    
+
     -- Create a promptbox for each screen
     mypromptbox[s] = awful.widget.prompt()
 
-    
+
     -- We need one layoutbox per screen.
     mylayoutbox[s] = awful.widget.layoutbox(s)
     mylayoutbox[s]:buttons(awful.util.table.join(
@@ -314,9 +314,9 @@ for s = 1, screen.count() do
     mytasklist[s] = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, mytasklist.buttons)
 
     -- Create the upper wibox
-    mywibox[s] = awful.wibox({ position = "top", screen = s, height = 20 }) 
+    mywibox[s] = awful.wibox({ position = "top", screen = s, height = 20 })
     --border_width = 0, height =  20 })
-        
+
     -- Widgets that are aligned to the upper left
     local left_layout = wibox.layout.fixed.horizontal()
     left_layout:add(mytaglist[s])
@@ -355,20 +355,20 @@ for s = 1, screen.count() do
     layout:set_left(left_layout)
     --layout:set_middle(mytasklist[s])
     layout:set_right(right_layout)
-    
+
     mywibox[s]:set_widget(layout)
 
     -- Create the bottom wibox
     mybottomwibox[s] = awful.wibox({ position = "bottom", screen = s, border_width = 0, height = 20 })
     --mybottomwibox[s].visible = false
-            
+
     -- Widgets that are aligned to the bottom left
     bottom_left_layout = wibox.layout.fixed.horizontal()
-                        
+
     -- Widgets that are aligned to the bottom right
     bottom_right_layout = wibox.layout.fixed.horizontal()
     bottom_right_layout:add(mylayoutbox[s])
-                                            
+
     -- Now bring it all together (with the tasklist in the middle)
     bottom_layout = wibox.layout.align.horizontal()
     bottom_layout:set_left(bottom_left_layout)
@@ -728,7 +728,7 @@ for s = 1, screen.count() do screen[s]:connect_signal("arrange", function ()
                     c.border_width = 0
                 elseif awful.client.floating.get(c) or layout == "floating" then
                     c.border_width = beautiful.border_width
-                elseif #clients == 1 then 
+                elseif #clients == 1 then
                     clients[1].border_width = 0
                     if layout ~= "max" then
                         awful.client.moveresize(0, 0, 2, 0, clients[1])
