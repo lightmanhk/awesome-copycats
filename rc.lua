@@ -499,9 +499,9 @@ globalkeys = awful.util.table.join(
             awful.util.spawn("amixer -q set Master playback toggle")
             volumewidget.update()
         end),
-    awful.key({ altkey, "Control" }, "m",
+    awful.key({ "Control" }, "m",
         function ()
-            awful.util.spawn("amixer -q set Master playback 100%")
+            awful.util.spawn("amixer -q set Speaker playback toggle")
             volumewidget.update()
         end),
 
