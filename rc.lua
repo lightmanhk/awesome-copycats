@@ -69,14 +69,14 @@ mail       = terminal .. " -e mutt "
 local layouts = {
     awful.layout.suit.floating,
     awful.layout.suit.tile,
-	awful.layout.suit.tile.left,
+    awful.layout.suit.tile.left,
     --awful.layout.suit.tile.bottom,
     --awful.layout.suit.tile.top,
-	--awful.layout.suit.fair,
+    --awful.layout.suit.fair,
     --awful.layout.suit.fair.horizontal,
     --awful.layout.suit.spiral,
     --awful.layout.suit.spiral.dwindle,
-	--awful.layout.suit.max,
+    --awful.layout.suit.max,
 }
 -- }}}
 
@@ -476,7 +476,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "q",      awesome.quit),
 
     -- Dropdown terminal
-    awful.key({ modkey,	          }, "z",      function () drop(terminal) end),
+    awful.key({ modkey,           }, "z",      function () drop(terminal) end),
 
     -- Widgets popups
     awful.key({ altkey,           }, "c",      function () lain.widgets.calendar:show(7) end),
@@ -496,12 +496,14 @@ globalkeys = awful.util.table.join(
         end),
     awful.key({ altkey }, "m",
         function ()
-            awful.util.spawn("amixer -q set Master playback toggle")
+            awful.util.spawn("amixer -q set Master playback off")
+        awful.util.spawn("amixer -q set Speaker playback off")
             volumewidget.update()
         end),
-    awful.key({ "Control" }, "m",
+    awful.key({ altkey }, "n",
         function ()
-            awful.util.spawn("amixer -q set Speaker playback toggle")
+            awful.util.spawn("amixer -q set Master playback on")
+        awful.util.spawn("amixer -q set Speaker playback on")
             volumewidget.update()
         end),
 
@@ -659,9 +661,9 @@ awful.rules.rules = {
                      focus = awful.client.focus.filter,
                      keys = clientkeys,
                      buttons = clientbuttons,
-	                   size_hints_honor = false } },
-	{ rule = { class = "URxvt" },
-		  properties = { opacity = 0.99 } },
+                       size_hints_honor = false } },
+    { rule = { class = "URxvt" },
+          properties = { opacity = 0.99 } },
 
     { rule = { class = "MPlayer" },
           properties = { floating = true } },
@@ -675,7 +677,7 @@ awful.rules.rules = {
     --{ rule = { instance = "plugin-container" },
           --properties = { tag = tags[1][1] } },
 
-	--{ rule = { class = "Gimp" },
+    --{ rule = { class = "Gimp" },
           --properties = { tag = tags[1][4] } },
 
     { rule = { class = "Gimp", role = "gimp-image-window" },
