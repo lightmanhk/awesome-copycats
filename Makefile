@@ -1,9 +1,12 @@
 
-.PHONY: all install uninstall reinstall
+.PHONY: all install uninstall reinstall update
 
 all:
 
-install:
+update:
+	git submodule update --recursive
+
+install: update
 	@if [ ! -d ~/.config ]; then \
 	   	mkdir -v ~/.config; \
 	fi
