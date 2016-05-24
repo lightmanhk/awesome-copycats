@@ -4,7 +4,7 @@
 all:
 
 update:
-	git submodule update --recursive
+	git submodule update --init --recursive
 
 install: update
 	@if [ ! -d ~/.config ]; then \
