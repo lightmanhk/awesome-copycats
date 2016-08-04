@@ -86,7 +86,7 @@ end
 
 -- {{{ Tags
 tags = {
-   names = { "dev1", "dev2", "dev3", "dev4", "srv", "main", "ent", },
+   names = { "dev1", "dev2", "dev3", "srv1", "srv2", "main", "ent", },
    layout = { layouts[2], layouts[2], layouts[1], layouts[1], layouts[1], layouts[1], layouts[1]}
 }
 for s = 1, screen.count() do
