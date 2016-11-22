@@ -524,12 +524,12 @@ globalkeys = awful.util.table.join(
         end),
     awful.key({ altkey }, "m",
         function ()
-            os.execute(string.format("amixer set %s toggle", volumewidget.channel))
+            os.execute("pactl set-sink-mute 0 1")
             volumewidget.update()
         end),
     awful.key({ altkey }, "n",
         function ()
-            os.execute(string.format("amixer set %s 100%%", volumewidget.channel))
+            os.execute("pactl set-sink-mute 0 0")
             volumewidget.update()
         end),
 
